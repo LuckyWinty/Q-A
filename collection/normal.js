@@ -178,3 +178,17 @@ function levelTraverse(root) {
       if(temp.right) stack.push(temp.right);
     }
   }
+// 缓存斐波那契
+  function fibo(){
+    const cache = {}
+    return function fiboApply(n){
+      if(cache[n])return cache[n]
+      if(n === 1 || n === 2){
+        cache[n]=1;
+        return 1
+      }
+      const res = fiboApply(n-1)+fiboApply(n-2)
+      cache[n] = res
+      return res
+    }
+  }
